@@ -2,52 +2,40 @@
 
 ## General
 
-- [Principle — e.g. Keep modules small and single-purpose]
-- [Principle — e.g. Fix root causes, do not layer workarounds]
-- [Principle — e.g. Do not mix unrelated concerns in one
-  component or route]
+- Keep changes small and focused on one Django boundary at a time.
+- Prefer root-cause fixes over workaround layers.
+- Do not mix routing, styling, and data logic in the same change unless the task explicitly requires it.
 
-## TypeScript
+## Python / Django
 
-- [Rule — e.g. Strict mode is required throughout the project]
-- [Rule — e.g. Avoid any — use explicit interfaces or narrowly
-  scoped types]
-- [Rule — e.g. Validate unknown external input at system
-  boundaries before trusting it]
+- Follow Django's standard project layout.
+- Keep views thin: render templates, prepare context, and delegate everything else.
+- Put configuration in [ghost_ai/settings.py](/Users/somesh/ghost-ai.worktrees/js-to-python-django-migration/ghost_ai/settings.py).
+- Put routes in [ghost_ai/urls.py](/Users/somesh/ghost-ai.worktrees/js-to-python-django-migration/ghost_ai/urls.py) and app URLs in [core/urls.py](/Users/somesh/ghost-ai.worktrees/js-to-python-django-migration/core/urls.py).
+- Create app-specific code under [core/](/Users/somesh/ghost-ai.worktrees/js-to-python-django-migration/core) rather than expanding the project package with feature logic.
 
-## [Framework — e.g. Next.js]
+## Templates
 
-- [Convention — e.g. Default to server components]
-- [Convention — e.g. Add use client only when browser
-  interactivity requires it]
-- [Convention — e.g. Keep route handlers focused on a
-  single responsibility]
+- Use [templates/base.html](/Users/somesh/ghost-ai.worktrees/js-to-python-django-migration/templates/base.html) for shared shell markup.
+- Keep page-specific markup inside the app template directory.
+- Prefer semantic HTML and keep blocks simple and explicit.
 
 ## Styling
 
-- [Rule — e.g. Use CSS custom property tokens — no
-  hardcoded hex values]
-- [Rule — e.g. Follow the border radius scale defined
-  in ui-context.md]
+- Use CSS custom properties for shared theme values.
+- Keep presentational rules in [core/static/core/site.css](/Users/somesh/ghost-ai.worktrees/js-to-python-django-migration/core/static/core/site.css).
+- Avoid inline styles unless there is no better option.
 
-## API Routes
+## Verification
 
-- [Rule — e.g. Validate and parse request input before
-  any logic runs]
-- [Rule — e.g. Enforce auth and ownership before any mutation]
-- [Rule — e.g. Return consistent, predictable response shapes]
-
-## Data and Storage
-
-- [Rule — e.g. Metadata belongs in the database]
-- [Rule — e.g. Large generated content belongs in file
-  or blob storage]
-- [Rule — e.g. Do not store large content directly in
-  the database]
+- Run `python manage.py check` after structural or routing changes.
+- Run `python manage.py runserver` and verify the actual page when UI or template work changes.
+- If models are added later, add migrations and validate them before handoff.
 
 ## File Organization
 
-- `[folder]/` — [What belongs here]
-- `[folder]/` — [What belongs here]
-- `[folder]/` — [What belongs here]
-- `[folder]/` — [What belongs here]s
+- `ghost_ai/` — settings, ASGI, WSGI, root URL config.
+- `core/` — view logic, app routing, templates, static files.
+- `templates/` — shared shell templates.
+- `requirements.txt` — Python dependencies.
+- `README.md` — local setup and run instructions.

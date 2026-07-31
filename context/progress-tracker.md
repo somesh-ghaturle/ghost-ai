@@ -1,37 +1,45 @@
 # Progress Tracker
 
-Update this file after every meaningful implementation
-change.
+Update this file after every meaningful implementation change so the next agent can resume without guessing.
 
 ## Current Phase
 
-- [e.g. Not started / In progress / Complete]
+- Handoff ready
 
 ## Current Goal
 
-- [What you are building right now]
+- Keep the repository on a clean Django baseline and prepare the next feature iteration.
 
 ## Completed
 
-- None yet.
+- Migrated the repo from Next.js/React to Django.
+- Added the Django project package, app, templates, and static CSS.
+- Updated repo docs and ignore rules for the Python stack.
+- Verified the project with `python manage.py check`.
+- Verified the landing page responds successfully in a browser.
+- Expanded all context files with the current architecture and workflow.
 
 ## In Progress
 
-- None yet.
+- None.
 
 ## Next Up
 
-- [First unit to build]
+- Another agent can now add the next Django feature or extend the landing page.
 
 ## Open Questions
 
-- [Any unresolved product or technical decisions]
+- What feature should be built next?
+- Should the project grow into a multi-page marketing site, an authenticated app, or an API-backed product?
 
 ## Architecture Decisions
 
-- [Decisions made that affect the system design or
-  data model — include why the decision was made]
+- The app uses Django server rendering rather than a client-side JavaScript framework.
+- The public UI is template-driven and styled with plain CSS.
+- SQLite remains the default local database because there is no persistence requirement yet.
+- The app boundary currently lives in [core/](/Users/somesh/ghost-ai.worktrees/js-to-python-django-migration/core), while project configuration stays in [ghost_ai/](/Users/somesh/ghost-ai.worktrees/js-to-python-django-migration/ghost_ai).
 
 ## Session Notes
 
-- [Context needed to resume work in the next session]
+- The development server was verified on a free local port because port 8000 was already occupied in the environment.
+- The codebase is currently a minimal, working Django baseline and should be extended incrementally.
