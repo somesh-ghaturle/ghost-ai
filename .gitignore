@@ -42,3 +42,7 @@ coverage/
 .DS_Store
 *.pem
 .env*
+
+# Legacy JS/Next artifacts (project migrated to Django)
+node_modules/
+.next/
