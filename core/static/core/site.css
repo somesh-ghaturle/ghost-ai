@@ -1,0 +1,67 @@
+:root {
+  color-scheme: dark;
+  --bg-base: #0b1020;
+  --bg-surface: #121a33;
+  --text-primary: #f5f7ff;
+  --text-muted: #a7b1d6;
+  --accent-primary: #7c9cff;
+  --border-default: rgba(167, 177, 214, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(124, 156, 255, 0.14), transparent 35%),
+    var(--bg-base);
+  color: var(--text-primary);
+}
+
+.page-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.hero-card {
+  width: min(560px, 100%);
+  padding: 48px 40px;
+  border: 1px solid var(--border-default);
+  border-radius: 24px;
+  background: rgba(18, 26, 51, 0.88);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  text-align: center;
+  backdrop-filter: blur(16px);
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.75rem, 7vw, 4.5rem);
+  line-height: 1;
+}
+
+.subtitle {
+  margin: 16px 0 0;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
